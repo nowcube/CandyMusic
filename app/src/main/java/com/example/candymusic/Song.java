@@ -1,0 +1,39 @@
+package com.example.candymusic;
+
+public class Song {
+    private String songName;
+    private String songDesc;
+    private String songTime;
+    private String songSrc;
+
+    public Song() {
+    }
+
+    public String getSongName() {
+        return songName;
+    }
+
+    public void setSongName(String songName) {
+        this.songName = songName;
+    }
+
+    public String getSongDesc() {
+        return songDesc;
+    }
+
+    public void setSongDesc(String songDesc) {
+        this.songDesc = songDesc;
+    }
+
+    public String getSongTime() {
+        return songTime;
+    }
+
+    public void setSongTime(String songTime) {
+        this.songTime = songTime;
+    }
+
+    public String getSongSrc() { return  songSrc; }
+
+    public void setSongSrc(String songSrc){this.songSrc=songSrc;}
+}
