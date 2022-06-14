@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             actionBar.hide();
         }
 
+        //!!调用SongList的方法以此来写入数据库，很重要
         SongList.main();
 
 

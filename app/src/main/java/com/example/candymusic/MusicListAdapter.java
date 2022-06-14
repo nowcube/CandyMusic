@@ -1,5 +1,6 @@
 package com.example.candymusic;
 
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.MusicListViewHolder>{
@@ -37,7 +39,15 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.Musi
             @Override
             public void onClick(View v) {
                 String srcText=(song.getSongSrc());
-                Toast.makeText(v.getContext(),srcText,Toast.LENGTH_SHORT).show();
+                MediaPlayer mediaPlayer = new MediaPlayer();
+                try {
+                    mediaPlayer.setDataSource(srcText);
+                    mediaPlayer.prepare();
+                    mediaPlayer.start();
+                    Toast.makeText(v.getContext(),srcText,Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

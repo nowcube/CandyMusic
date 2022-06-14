@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CandyMusic"
-        tools:targetApi="31">
+        tools:targetApi="29"
+        android:requestLegacyExternalStorage="true">
+
         <activity
             android:name=".MusicListActivity"
             android:exported="false" />
@@ -28,6 +30,6 @@
 
 
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
