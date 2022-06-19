@@ -1,6 +1,7 @@
 package com.example.candymusic;
 
 public class Song {
+    private String songID;
     private String songName;
     private String songDesc;
     private String songTime;
@@ -16,6 +17,12 @@ public class Song {
     public void setSongName(String songName) {
         this.songName = songName;
     }
+
+    public String getSongID() {
+        return songID;
+    }
+
+    public void setSongID(String songID) { this.songID = songID; }
 
     public String getSongDesc() {
         return songDesc;

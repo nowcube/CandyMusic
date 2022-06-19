@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,25 +17,23 @@ public class MusicListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-
     @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_music_list);
+
         //引入音乐数据库，由MainActivity创建
         SQLiteDatabase db;
         String FullPath="/data/data/com.example.candymusic/databases/music_list.db";
-        Log.d("Path", FullPath);
+//        Log.d("Path", FullPath);
         db= SQLiteDatabase.openDatabase(FullPath, null, SQLiteDatabase.OPEN_READWRITE);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_list);
 
         //隐藏ActionBar
         ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
-//            actionBar.hide();
-            actionBar.setTitle("歌曲列表");
+            actionBar.hide();
         }
 
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
@@ -57,6 +54,8 @@ public class MusicListActivity extends AppCompatActivity {
                     .getColumnIndex("songtime")));
             song.setSongSrc(cursor.getString(cursor
                     .getColumnIndex("songsrc")));
+            song.setSongID(cursor.getString(cursor
+                    .getColumnIndex("songid")));
             songList.add(song);
         }
 

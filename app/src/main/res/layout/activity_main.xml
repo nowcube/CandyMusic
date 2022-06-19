@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="糖果音乐"
+        android:fontFamily="sans-serif"
+        android:text="糖 果 音 乐"
+        android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -23,12 +24,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintTop_toTopOf="parent">
 
         <include
             android:id="@+id/musicList"
@@ -37,6 +37,7 @@
             android:layout_height="match_parent" />
 
         <include
+            android:id="@+id/atrs"
             layout="@layout/mainpage_item_arts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -48,29 +49,5 @@
             android:layout_height="match_parent" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-
-        app:backgroundTint="#F48FB1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="serif"
-        android:text="功能列表"
-        android:textColor="#F06292"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

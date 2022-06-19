@@ -1,16 +1,14 @@
 package com.example.candymusic;
 
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.IOException;
 import java.util.List;
 
 public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.MusicListViewHolder>{
@@ -38,16 +36,19 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.Musi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String srcText=(song.getSongSrc());
-                MediaPlayer mediaPlayer = new MediaPlayer();
-                try {
-                    mediaPlayer.setDataSource(srcText);
-                    mediaPlayer.prepare();
-                    mediaPlayer.start();
-                    Toast.makeText(v.getContext(),srcText,Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                String songID=(song.getSongID());
+                String songName=(song.getSongName());
+                String songDesc=(song.getSongDesc());
+                String songTime=(song.getSongTime());
+                String songSrc=(song.getSongSrc());
+                Intent intent = new Intent(v.getContext(), MusicPlayerActivity.class);
+                intent.putExtra("songID",songID);//intent传出数据
+                intent.putExtra("songName",songName);//intent传出数据
+                intent.putExtra("songDesc",songDesc);//intent传出数据
+                intent.putExtra("songTime",songTime);//intent传出数据
+                intent.putExtra("songSrc",songSrc);//intent传出数据
+                v.getContext().startActivity(intent);
+
             }
         });
     }
